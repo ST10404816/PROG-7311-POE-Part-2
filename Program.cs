@@ -7,15 +7,14 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-// ✅ Configure Entity Framework to use SQLite
+// Configure Entity Framework to use SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ Add ASP.NET Core Identity with role support
+// Add ASP.NET Core Identity with role support
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -25,7 +24,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 
 var app = builder.Build();
 
-// ✅ Apply migrations and seed roles/users
+// Apply migrations and seed roles/users
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -35,7 +34,7 @@ using (var scope = app.Services.CreateScope())
         var dbContext = services.GetRequiredService<ApplicationDbContext>();
         dbContext.Database.Migrate();
 
-        await DataSeeder.SeedRolesAndAdminAsync(services); // ⬅️ Your seeding logic
+        await DataSeeder.SeedRolesAndAdminAsync(services); 
     }
     catch (Exception ex)
     {
@@ -44,7 +43,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -56,13 +54,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();  // ✅ Enable Identity Auth
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapRazorPages(); // ✅ Required for Identity UI
+app.MapRazorPages(); 
 
 app.Run();

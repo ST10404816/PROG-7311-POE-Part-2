@@ -3,17 +3,26 @@
 <h2>Add New Product</h2>
 
 <form asp-action="CreateProduct" method="post">
+
+    <!-- Input field for the product name -->
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
     </div>
+
+    <!-- Input field for the category -->
     <div class="form-group">
         <label asp-for="Category"></label>
         <input asp-for="Category" class="form-control" />
     </div>
+
+    <!-- Input field for the production date -->
     <div class="form-group">
         <label asp-for="ProductionDate"></label>
         <input asp-for="ProductionDate" type="date" class="form-control" />
     </div>
+
+    <!-- Submit button to save the product -->
     <button type="submit" class="btn btn-primary">Add Product</button>
+
 </form>

@@ -3,13 +3,20 @@
 <h2>Create Farmer Profile</h2>
 
 <form asp-action="CreateProfile" method="post">
+
+    <!-- Input field for the farmer name -->
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
     </div>
+
+    <!-- Input field for the farmer region -->
     <div class="form-group">
         <label asp-for="Region"></label>
         <input asp-for="Region" class="form-control" />
     </div>
+
+    <!-- Submit button to save the farmer information -->
     <button type="submit" class="btn btn-success">Create Profile</button>
+
 </form>

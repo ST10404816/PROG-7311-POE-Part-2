@@ -2,37 +2,47 @@
 
 <h2>All Products</h2>
 
+<!-- Filter form to search products by category and date range -->
 <form method="get" class="mb-3">
+
+    <!-- Text input for filtering by product category -->
     <input type="text" name="category" placeholder="Category" class="form-control mb-2" />
+
     <label>Date Range:</label>
     <div class="row">
+        <!-- Input for selecting the start of the date range -->
         <div class="col">
             <input type="date" name="fromDate" class="form-control" />
         </div>
+
+        <!-- Input for selecting the end of the date range -->
         <div class="col">
             <input type="date" name="toDate" class="form-control" />
         </div>
     </div>
+
+    <!-- Button to submit the filter form -->
     <button type="submit" class="btn btn-secondary mt-2">Filter</button>
 </form>
 
+<!-- Table to display all products -->
 <table class="table table-bordered mt-3">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Production Date</th>
-            <th>Farmer</th>
+            <th>Name</th>            
+            <th>Category</th>         
+            <th>Production Date</th>  
+            <th>Farmer</th>            
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model) 
         {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Category</td>
-                <td>@item.ProductionDate.ToShortDateString()</td>
-                <td>@item.Farmer?.Name</td>
+                <td>@item.Name</td> 
+                <td>@item.Category</td> 
+                <td>@item.ProductionDate.ToShortDateString()</td> 
+                <td>@item.Farmer?.Name</td> 
             </tr>
         }
     </tbody>
