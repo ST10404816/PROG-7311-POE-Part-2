@@ -113,9 +113,7 @@ Update-Database
 - SQLite – [Official Documentation](https://www.sqlite.org/docs.html)
 - Bootstrap 5 – [W3Schools Docs](https://www.w3schools.com/bootstrap5/)
 - Code Maze – [ASP.NET Core Roles](https://code-maze.com/aspnetcore-identity-user-roles/)
-- Stack Overflow – Community solutions and role-based routing advice
 - Dev.to – [Customize Identity in ASP.NET Core](https://dev.to/moe23/customize-identity-in-aspnet-core-37h4)
-- GitHub Gist – Razor Pages Register with Roles by @eduardopires
 - Bootswatch – [Themes for Bootstrap](https://bootswatch.com/)
 - Visual Studio Tutorials – [Scaffold Identity UI](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-8.0&tabs=visual-studio)
 
