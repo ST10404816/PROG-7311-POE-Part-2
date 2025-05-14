@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4 fw-bold">Welcome to Farm Produce Manager 🌾</h1>
+    <p class="lead mt-3">
+        A smart system designed to help <strong>farmers</strong> manage their products and allow <strong>employees</strong> to track, filter, and analyze farm produce easily.
+    </p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Farmer"))
+        {
+            <a class="btn btn-primary btn-lg mt-4" asp-controller="Farmer" asp-action="Dashboard">Go to Farmer Dashboard</a>
+        }
+        else if (User.IsInRole("Employee"))
+        {
+            <a class="btn btn-info btn-lg mt-4" asp-controller="Employee" asp-action="Dashboard">Go to Employee Dashboard</a>
+        }
+    }
+    else
+    {
+        <div class="mt-4">
+            <a class="btn btn-success btn-lg me-2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="btn btn-outline-success btn-lg" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </div>
+    }
+</div>
+
+<hr class="my-5" />
+
+<div class="row text-center">
+    <div class="col-md-4">
+        <h4>👨‍🌾 For Farmers</h4>
+        <p>Log in, create your profile, and start listing your products by name, category, and date.</p>
+    </div>
+    <div class="col-md-4">
+        <h4>🧑‍💼 For Employees</h4>
+        <p>Access all products, filter them, and manage farmer profiles in just a few clicks.</p>
+    </div>
+    <div class="col-md-4">
+        <h4>📊 Efficient & Organized</h4>
+        <p>Our system helps track produce efficiently with user-friendly UI and accurate data.</p>
+    </div>
+</div>

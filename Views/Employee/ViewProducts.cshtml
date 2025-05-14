@@ -1,0 +1,39 @@
+﻿@model List<PROG_7311_POE_Part_2.Models.Product>
+
+<h2>All Products</h2>
+
+<form method="get" class="mb-3">
+    <input type="text" name="category" placeholder="Category" class="form-control mb-2" />
+    <label>Date Range:</label>
+    <div class="row">
+        <div class="col">
+            <input type="date" name="fromDate" class="form-control" />
+        </div>
+        <div class="col">
+            <input type="date" name="toDate" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-secondary mt-2">Filter</button>
+</form>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Production Date</th>
+            <th>Farmer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Category</td>
+                <td>@item.ProductionDate.ToShortDateString()</td>
+                <td>@item.Farmer?.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
